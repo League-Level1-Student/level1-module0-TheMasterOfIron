@@ -19,8 +19,8 @@ public class BodyPartQuiz {
 	// or if you prefer, get celebrity photos from the Internet, place them in the default
 	// package, and change the names below.
 	
-	String firstImage = "src/arnold.jpeg";
-	String secondImage = "src/leonardo.jpeg";
+	String firstImage = "src/arm 2.jpeg";
+	String secondImage = "src/leg.jpeg";
 	String thirdImage = "src/morgan.jpeg";
 	String fourthImage = "src/jack.jpeg";
 	
@@ -31,20 +31,24 @@ public class BodyPartQuiz {
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-
+int score = 0;
 		// 2. Set the size of the window in the initializeGui() method below
 
 		for (int i = 0; i < 4; i++) {
 			
 			// 4. Ask the user who this person is and store their answer
-			String guess= JOptionPane.showInputDialog("who is this?");
+			String guess= JOptionPane.showInputDialog("What part of the body is this?");
 			
 			// 5. Check their answer. If they guessed correctly:
 			// -- Tell them they are right and increase the score by 1
-
+if (i == 0 && guess .equalsIgnoreCase("arm")) {
+	speak("Wow you got it right.");
+}
 			// 6. Otherwise:
 			// -- Tell them they are wrong and who the person is
-
+else {
+	speak("Iiiiiiiiiiiimmmmmmmmmm aaaaaaaaaannnnnnnnnooooooooiiiiiiiinnnnnnnnngggggggg!");
+}
 			// 7. Use the showNextImage() method below to get the next image
 			showNextImage();
 		    // 8. Show them their current score
@@ -106,5 +110,12 @@ public class BodyPartQuiz {
 			return imageIterator.next();
 		System.exit(0);
 		return new JLabel();
+	}
+	static void speak(String words) {
+		try {
+			Runtime.getRuntime().exec("say " + words).waitFor();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
