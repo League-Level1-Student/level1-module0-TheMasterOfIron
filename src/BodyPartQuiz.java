@@ -21,8 +21,8 @@ public class BodyPartQuiz {
 	
 	String firstImage = "src/arm 2.jpeg";
 	String secondImage = "src/leg.jpeg";
-	String thirdImage = "src/morgan.jpeg";
-	String fourthImage = "src/jack.jpeg";
+	String thirdImage = "src/Finger.jpeg";
+	String fourthImage = "src/Hand.jpeg";
 	
 	JFrame window = new JFrame();
 	JPanel panel = new JPanel();
@@ -41,18 +41,43 @@ int score = 0;
 			
 			// 5. Check their answer. If they guessed correctly:
 			// -- Tell them they are right and increase the score by 1
-if (i == 0 && guess .equalsIgnoreCase("arm")) {
-	speak("Wow you got it right.");
+if (i == 0 && guess .equalsIgnoreCase("Arm")) {
+	speak("Wow you got it right!");
+	score ++;
 }
 			// 6. Otherwise:
 			// -- Tell them they are wrong and who the person is
-else {
-	speak("Iiiiiiiiiiiimmmmmmmmmm aaaaaaaaaannnnnnnnnooooooooiiiiiiiinnnnnnnnngggggggg!");
+else if (i == 0 ){
+	speak("YOU FAIL! The correct answer is Arm.");
+}
+else if (i == 1 && guess .equalsIgnoreCase("Leg")) {
+	speak("Wow you got it right!");
+	score ++;
+}
+			
+else if (i == 1 ){
+	speak("YOU FAIL! The correct answer is Leg.");
+}
+else if (i == 2 && guess .equalsIgnoreCase("Finger")) {
+	speak("Wow you got it right!");
+	score ++;
+}
+			
+else if (i == 2 ){
+	speak("YOU FAIL! The correct answer is Finger.");
+}
+else if (i == 3 && guess .equalsIgnoreCase("Hand")) {
+	speak("Wow you got it right!");
+	score ++;
+}
+			
+else if (i == 3 ){
+	speak("YOU FAIL! The correct answer is Hand.");
 }
 			// 7. Use the showNextImage() method below to get the next image
 			showNextImage();
 		    // 8. Show them their current score
-			
+			JOptionPane.showMessageDialog(null, "Your score so far is " + score + ".");
 			// 9. .... repeat for all your images.....
 
 
